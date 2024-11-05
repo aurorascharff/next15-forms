@@ -3,12 +3,11 @@
 import { getFormProps, getInputProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 import { useActionState } from 'react';
-import { useFormStatus } from 'react-dom';
 import { signIn3 } from './actions';
 import { signInSchema } from './types';
 
 export default function SignInForm3() {
-  const [lastResult, action] = useActionState(signIn3, undefined);
+  const [lastResult, action, isPending] = useActionState(signIn3, undefined);
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }: { formData: FormData }) {
@@ -31,23 +30,10 @@ export default function SignInForm3() {
         <input {...getInputProps(fields.password, { type: 'text' })} key={fields.password.key} />
         <span>{fields.password.errors}</span>
       </div>
-      <SubmitButton />
+
+      <button type="submit" disabled={isPending}>
+        {isPending ? 'Signing in...' : 'Sign In'}
+      </button>
     </form>
-  );
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      onClick={() => {
-        console.log('Signing in...');
-      }}
-      type="submit"
-      disabled={pending}
-    >
-      {pending ? 'Signing in...' : 'Sign In'}
-    </button>
   );
 }

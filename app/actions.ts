@@ -27,8 +27,8 @@ type State = {
   success: boolean;
 };
 
-export async function signIn2(prevState: State, data: FormData) {
-  const result = signInSchema.safeParse(Object.fromEntries(data));
+export async function signIn2(_prevState: State, formData: FormData) {
+  const result = signInSchema.safeParse(Object.fromEntries(formData));
   console.log('Signing in with data', result.data);
 
   if (!result.success) {
