@@ -22,13 +22,13 @@ export default function SignInForm3() {
     <form action={action} {...getFormProps(form)}>
       <div>
         <label htmlFor="username">Username</label>
-        <input {...getInputProps(fields.username, { type: 'text' })} id="username" type="text" />
+        <input {...getInputProps(fields.username, { type: 'text' })} key={fields.username.key} />
         <span>{fields.username.errors}</span>
       </div>
 
       <div>
         <label htmlFor="password">Password</label>
-        <input {...getInputProps(fields.password, { type: 'text' })} id="password" type="password" />
+        <input {...getInputProps(fields.password, { type: 'text' })} key={fields.password.key} />
         <span>{fields.password.errors}</span>
       </div>
       <SubmitButton />
