@@ -46,7 +46,7 @@ It does not rely on js to work since its sort of an extended default form action
 
 The way it is right now, yes. However we can easily return the values and the errors and display them per field which i have done demos and blogposts on. Whats cool si you can now get validtion errors entirely without relying on js. And get typescript from zof inferring. We can also do a toast in an effect for example and get more interactivity as we could in the RHF.
 
-However we wont get instant validation feedback that RFH does. However you could also add onChange handlers for that. Also i think maybe this conform library is doing this?
+However we wont get instant validation feedback that RFH does. However you could also add onChange handlers for that. There is a library conform that seems like its made for remix but also has nextjs support. Works like a charm, i just tried it before this. Its possible because of useActionState.
 
 ### Why is React going in this direction?
 
