@@ -1,10 +1,10 @@
 'use client';
 
 import { useActionState } from 'react';
-import { signIn2 } from './actions';
+import { signInActionStateForm } from './actions';
 
-function SignInForm2() {
-  const [state, formAction, isPending] = useActionState(signIn2, {
+export default function ActionStateForm() {
+  const [state, formAction, isPending] = useActionState(signInActionStateForm, {
     error: undefined,
     success: false,
   });
@@ -29,5 +29,3 @@ function SignInForm2() {
     </form>
   );
 }
-
-export default SignInForm2;

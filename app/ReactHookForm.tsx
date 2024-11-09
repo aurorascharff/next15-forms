@@ -2,11 +2,11 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { signIn1 } from './actions';
+import { signInReactHookForm } from './actions';
 import { signInSchema } from './types';
 import type { SignInFormData } from './types';
 
-function SignInForm1() {
+export default function ReactHookForm() {
   const {
     formState: { errors, isSubmitting },
     handleSubmit,
@@ -16,9 +16,8 @@ function SignInForm1() {
   });
 
   async function onSubmit(data: SignInFormData) {
-    console.log(data);
     try {
-      await signIn1(data);
+      await signInReactHookForm(data);
     } catch (error) {
       console.error(error);
     }
@@ -44,5 +43,3 @@ function SignInForm1() {
     </form>
   );
 }
-
-export default SignInForm1;

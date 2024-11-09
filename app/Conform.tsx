@@ -3,11 +3,11 @@
 import { getFormProps, getInputProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 import { useActionState } from 'react';
-import { signIn3 } from './actions';
+import { signInConform } from './actions';
 import { signInSchema } from './types';
 
-export default function SignInForm3() {
-  const [lastResult, action, isPending] = useActionState(signIn3, undefined);
+export default function Conform() {
+  const [lastResult, action, isPending] = useActionState(signInConform, undefined);
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }: { formData: FormData }) {
